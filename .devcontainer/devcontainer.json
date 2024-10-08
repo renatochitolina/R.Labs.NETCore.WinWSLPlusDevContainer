@@ -22,7 +22,7 @@
 	],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "sudo chown -R $(whoami) /root",
+	"postCreateCommand": "sudo chown -R $(whoami) /root && sudo chmod a+rwx /root/.ssh/ssh-setup-devcontainer.sh",
 
 	// Configure tool-specific properties.
 	"customizations": {
