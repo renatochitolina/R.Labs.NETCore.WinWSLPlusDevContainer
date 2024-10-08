@@ -16,8 +16,13 @@
 	//		}
 	// }
 
+	"mounts": [
+		"source=${env:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached",
+		"source=${env:HOME}/.gitconfig,target=/root/.gitconfig,type=bind,consistency=cached"
+	],
+
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "dotnet restore",
+	"postCreateCommand": "sudo chown -R $(whoami) /root",
 
 	// Configure tool-specific properties.
 	"customizations": {
@@ -26,12 +31,8 @@
 				"ms-dotnettools.csdevkit"
 			]
 		}
-	},
+	}
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
-
-	"mounts": [
-		"source=${env:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached"
-	]
 }
