@@ -18,4 +18,9 @@ app
     .WithName("GetHello")
     .WithOpenApi();
 
+app
+    .MapGet("/helloMachine1", () => "Hello I was generated from the machine setup 1")
+    .WithName("GetMachine1")
+    .WithOpenApi();
+
 app.Run();
